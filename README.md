@@ -1,11 +1,10 @@
 # Libft_42
-Primeiro projeto, criar sua própria biblioteca de funções em C.
-
-<head>
-    <title>Funções da libc</title>
-</head>
-
-<body>
+<p align="center">
+    Primeiro projeto, criar sua própria biblioteca de funções em C.
+</p>
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=%20EM-DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+</p>
 
 <h1>Funções da libc</h1>
 
