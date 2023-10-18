@@ -14,4 +14,10 @@ int ft_isprint(int c);
 void ft_memset(void *ptr, int value, size_t size);
 void ft_bzero(void *s, size_t n);
 void *ft_memcpy(void *dest, const void *src, size_t n);
+unsigned int ft_strlcpy(char *dest, const char *src, unsigned int size);
+unsigned int ft_strlcat(char *dest, const char *src, unsigned int size);
+int ft_toupper(int c);
+int ft_tolower(int c);
+char *ft_strchr(const char *str, int c);
+
 #endif
