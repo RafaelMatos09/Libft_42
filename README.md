@@ -1,4 +1,5 @@
 # Libft_42
+
 <p align="center">
     Primeiro projeto, criar sua própria biblioteca de funções em C.
 </p>
@@ -12,7 +13,7 @@
 
 <h2>1. ft_strlen(char *src)</h2>
 
-<p>Conta quantos caracteres possui a string, percorre a string incrementando um contador i que é retornado no final da função.</p>
+<p>Verifica o tamanha de uma string, percorre a string incrementando um contador i que é retornado no final da função.</p>
 
 <h2>2. ft_isalpha(int c)</h2>
 
