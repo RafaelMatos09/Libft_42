@@ -20,6 +20,6 @@ int ft_memcmp(const void *s1, const void *s2, unsigned int n)
 int main(void)
 {
     char *str1 = "abc";
-    char *str2 = "abc";
-    printf("%d", ft_memcmp(str1, str2, 3));
+    char *str2 = "abcewe";
+    printf("%d\n", ft_memcmp(str1, str2, 3));
 }

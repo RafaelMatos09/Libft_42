@@ -19,5 +19,7 @@ unsigned int ft_strlcat(char *dest, const char *src, unsigned int size);
 int ft_toupper(int c);
 int ft_tolower(int c);
 char *ft_strchr(const char *str, int c);
+int ft_memcmp(const void *s1, const void *s2, unsigned int n);
+char *ft_strnstr(const char *str, const char *find, size_t size);
 
 #endif
