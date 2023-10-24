@@ -2,6 +2,8 @@
 #define LIBFT_H
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* Libc functions*/
 
@@ -23,5 +25,6 @@ int ft_memcmp(const void *s1, const void *s2, unsigned int n);
 char *ft_strnstr(const char *str, const char *find, size_t size);
 char *ft_strdup(char *str);
 char *ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_strjoin(char const *s1, char const *s2);
 
 #endif
