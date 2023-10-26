@@ -97,7 +97,7 @@ char *ft_strtrim(char const *s1, char const *set)
 int main()
 {
     const char *s1 = "  Hello, World ";
-    const char *set = " ";
+    const char *set = ",";
     char *trimmed = ft_strtrim(s1, set);
 
     if (trimmed)
