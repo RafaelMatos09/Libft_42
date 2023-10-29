@@ -3,18 +3,18 @@
 char *ft_strdup(char *str)
 {
     char *src;
-    int lenght = ft_strlen(str);
+    int length = ft_strlen(str);
     int i;
 
-    src = (char *)malloc((lenght + 1) * sizeof(char));
+    src = (char *)malloc((length + 1) * sizeof(char));
     i = 0;
     if (src)
     {
-        while (i < lenght)
+        while (i < length)
         {
             src[i] = str[i];
         }
-        src[lenght] = '\0';
+        src[length] = '\0';
     }
 
     return (src);

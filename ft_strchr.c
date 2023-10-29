@@ -19,5 +19,5 @@ char *ft_strchr(const char *str, int c)
 
 int main(void)
 {
-    printf("%s\n", ft_strchr("teste", 'u'));
+    printf("%s\n", ft_strchr("teste", 'e'));
 }
