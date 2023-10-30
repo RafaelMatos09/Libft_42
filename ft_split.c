@@ -1,58 +1,101 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
-char **ft_split(const char *s, char c)
+int ft_strlen(const char *str)
 {
-    int len = strlen(s);
     int i = 0;
-    int count = 0;
-    while (i < len)
+    while (str[i] != '\0')
     {
-        while (i < len && s[i] == c)
+        i++;
+    }
+    return i;
+}
+
+char *ft_word_dup(const char *str, int start, int end)
+{
+    int length = end - start;
+    char *src = (char *)malloc((length + 1) * sizeof(char));
+
+    if (src)
+    {
+        int i = 0;
+        int j = start;
+        while (i < length)
+        {
+            src[i] = str[j];
             i++;
-        if (i < len && s[i] != c)
-            count++;
-        while (i < len && s[i] != c)
-            i++;
+            j++;
+        }
+        src[length] = '\0';
     }
 
-        char **result = (char **)malloc((count + 1) * sizeof(char *));
+    return src;
+}
 
-    i = 0;
-    int string_index = 0;
+int count_substrings(const char *s, char c)
+{
+    int len = ft_strlen(s);
+    int count = 0;
+    int i = 0;
+    int j = 0;
 
     while (i < len)
     {
         while (i < len && s[i] == c)
             i++;
-
-        if (i < len && s[i] != c)
+        while (i < len && s[i] != c)
         {
-            int j = 0;
-            while (i < len && s[i] != c)
-            {
-                i++;
-                j++;
-            }
-
-            result[string_index] = (char *)malloc(j + 1);
-            strncpy(result[string_index], s + i - j, j);
-            result[string_index][j] = '\0';
-            string_index++;
+            i++;
+            j++;
+        }
+        if (j > 0)
+        {
+            count++;
+            j = 0;
         }
     }
 
-    result[count] = NULL;
+    return count;
+}
 
+char **ft_split(const char *s, char c)
+{
+    size_t i;
+    size_t j;
+    int index;
+    char **result;
+
+    if (!s || !(result = (char **)malloc((count_substrings(s, c) + 1) * sizeof(char *))))
+        return (0);
+
+    i = 0;
+    j = 0;
+    index = -1;
+    while (s[i] != '\0')
+    {
+        if (s[i] != c && index < 0)
+            index = i;
+        else if ((s[i] == c || s[i + 1] == '\0') && index >= 0)
+        {
+            result[j++] = ft_word_dup(s, index, i + ((s[i + 1] == '\0') ? 1 : 0));
+            index = -1;
+        }
+        i++;
+    }
+    result[j] = '\0';
     return result;
 }
 
 int main(void)
 {
     const char *str = "vou ali, quando voltar, ja venho.";
-
     char **split_strings = ft_split(str, ',');
+    if (split_strings == NULL)
+    {
+        printf("Erro ao dividir a string.\n");
+        return 1;
+    }
 
     int i = 0;
     while (split_strings[i])
@@ -61,8 +104,6 @@ int main(void)
         free(split_strings[i]);
         i++;
     }
-
     free(split_strings);
-
     return 0;
 }
