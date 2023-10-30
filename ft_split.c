@@ -1,144 +1,68 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-char *ft_strcpy(char *dest, char *src)
+char **ft_split(const char *s, char c)
 {
-    int i;
-
-    i = 0;
-    while (src[i])
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    dest[i] = '\0';
-    return (dest);
-}
-
-char *ft_strchr(const char *str, int c)
-{
-    int i;
-
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (str[i] == (unsigned char)c)
-            return ((char *)&str[i]);
-        i++;
-    }
-    if ((unsigned char)c == str[i])
-        return ((char *)&str[i]);
-    return (NULL);
-}
-
-int ft_strlen(char *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
-}
-
-char **ft_split(char const *s, char c)
-{
-    int len;
-    int i;
-    int old_i;
-    int *count;
-
-    len = ft_strlen(s);
-    i = 0;
-    count = 0;
+    int len = strlen(s);
+    int i = 0;
+    int count = 0;
     while (i < len)
     {
-        if (ft_strchr(c, s[i]) == NULL)
-            break;
-        i++;
+        while (i < len && s[i] == c)
+            i++;
+        if (i < len && s[i] != c)
+            count++;
+        while (i < len && s[i] != c)
+            i++;
     }
 
-    old_i = i;
-    while (i < len)
-    {
-        if (ft_strchr(c, s[i]) != NULL)
-            break;
-        i++;
-    }
-
-    if (i > old_i)
-        *count = *count + 1;
-
-    char **s = malloc(sizeof(char *) * *count);
+        char **result = (char **)malloc((count + 1) * sizeof(char *));
 
     i = 0;
+    int string_index = 0;
 
-    char buffer[16384];
-    int string_index;
-
-    string_index = 0;
     while (i < len)
     {
-        if (ft_strchr(c, s[i]) == NULL)
-            break;
-        i++;
+        while (i < len && s[i] == c)
+            i++;
+
+        if (i < len && s[i] != c)
+        {
+            int j = 0;
+            while (i < len && s[i] != c)
+            {
+                i++;
+                j++;
+            }
+
+            result[string_index] = (char *)malloc(j + 1);
+            strncpy(result[string_index], s + i - j, j);
+            result[string_index][j] = '\0';
+            string_index++;
+        }
     }
 
-    int j;
+    result[count] = NULL;
 
-    j = 0;
-    while (i < len)
-    {
-        if (ft_strchr(c, s[i]) != NULL)
-            break;
-
-        buffer[j] = s[i];
-        i++;
-        j++;
-    }
-
-    if (j > 0)
-    {
-        buffer[j] = '\0';
-
-        int to_allocate;
-
-        to_allocate = sizeof(char) * (ft_strlen(buffer) + 1);
-
-        s[string_index] = malloc(to_allocate);
-
-        ft_strcpy(s[string_index], buffer);
-
-        string_index++;
-    }
-
-    return (s);
+    return result;
 }
 
 int main(void)
 {
-    const char *str[];
-
-    str = "vou ali, quando voltar, ja venho.";
+    const char *str = "vou ali, quando voltar, ja venho.";
 
     char **split_strings = ft_split(str, ',');
 
-    int i;
-
-    i = 0;
-    while (str[i])
+    int i = 0;
+    while (split_strings[i])
     {
         printf("%s\n", split_strings[i]);
-    }
-
-    while (str[i])
-    {
         free(split_strings[i]);
+        i++;
     }
 
     free(split_strings);
 
-    return (0);
+    return 0;
 }
