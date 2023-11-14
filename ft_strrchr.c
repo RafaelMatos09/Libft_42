@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafmorei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 19:19:48 by rafmorei          #+#    #+#             */
-/*   Updated: 2023/10/27 19:19:51 by rafmorei         ###   ########.fr       */
+/*   Created: 2023/10/27 19:23:00 by rafmorei          #+#    #+#             */
+/*   Updated: 2023/11/13 19:10:54 by rafmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+char *ft_strrchr(char *str, int c)
 {
-	if (c >= 65 && c <= 90)
+	int i;
+	
+	i = ft_strlen(str);
+	while (i >= 0)
 	{
-		return (c + 32);
+		if (str[i] == (unsigned char)c)
+			return (&str[i]);
+		i--;
 	}
-	return (c);
+
+	return NULL;
 }
+/*
+int main(void)
+{
+	printf("%s\n", ft_strrchr("testeteeiooo", 'e'));
+}
+*/

@@ -1,10 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 void *ft_calloc(size_t nitems, size_t size)
 {
     char *dest;
-    int i;
+    size_t i;
 
     dest = malloc(nitems * size);
     if (dest == NULL)
@@ -18,6 +17,7 @@ void *ft_calloc(size_t nitems, size_t size)
     return (dest);
 }
 
+/*
 int main(void)
 {
     char *ptr;
@@ -26,3 +26,4 @@ int main(void)
     ptr = "teste";
     printf("%s\n ", ptr);
 }
+*/

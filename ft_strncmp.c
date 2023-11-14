@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rafmorei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 11:51:14 by rafmorei          #+#    #+#             */
-/*   Updated: 2023/11/13 11:51:19 by rafmorei         ###   ########.fr       */
+/*   Created: 2023/10/27 19:25:04 by rafmorei          #+#    #+#             */
+/*   Updated: 2023/10/27 19:25:07 by rafmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-	char	*buffer;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	buffer = (char *)malloc(i + 1);
-	if (buffer == NULL)
+	if (n == 0)
 		return (0);
-	i = 0;
-	while (s[i])
+	while (s1[i] == s2[i] && i < n - 1 && s1[i] != '\0' && s2[i] != '\0')
 	{
-		buffer[i] = (*f)(i, s[i]);
 		i++;
 	}
-	buffer[i] = 0;
-	return (buffer);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+/*int main(void)
+{
+	char s1[] = "DEF";
+	char s2[] = "DEF";
+
+	printf("%d\n", ft_strncmp(s1, s2, 3));
+	return (0);
+}*/

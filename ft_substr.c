@@ -1,59 +1,34 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 12:33:14 by rafmorei          #+#    #+#             */
+/*   Updated: 2023/11/13 19:52:06 by rafmorei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strlen(char *str)
+#include "libft.h"
+
+char	*ft_substr(char const *s, size_t start, size_t len)
 {
-    int i;
+	size_t	i;
+	char	*dest;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
-}
-
-char *ft_substr(char const *s, unsigned int start, size_t len)
-{
-    if (!s)
-        return NULL;
-
-    if (start >= ft_strlen((char *)s))
-        return NULL;
-
-    char *dest = (char *)malloc(len + 1);
-
-    if (!dest)
-        return NULL;
-
-    size_t i = 0;
-
-    while (i < len && s[start + i] != '\0')
-    {
-        dest[i] = s[start + i];
-        i++;
-    }
-
-    dest[i] = '\0';
-
-    return dest;
-}
-
-int main(void)
-{
-    char src[] = "testest initteste testeteste";
-
-    unsigned int start = 7;
-    size_t size = 15;
-
-    char *dest = ft_substr(src, start, size);
-
-    printf("%s\n", dest);
-
-    if (dest)
-    {
-        free(dest);
-    }
-
-    return (0);
+	if (!s)
+		return (NULL);
+	if (start >= (size_t)ft_strlen((char *)s))
+		return (ft_strdup(""));
+	if (len >= (size_t)ft_strlen((char *)s))
+		len = (size_t)ft_strlen((char *)s);
+	dest = (char *)malloc(len + 1);
+	if (!dest)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start] != '\0')
+		dest[i++] = s[start++];		
+	dest[i] = '\0';
+	return (dest);
 }

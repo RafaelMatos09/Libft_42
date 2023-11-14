@@ -1,28 +1,18 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 16:31:32 by rafmorei          #+#    #+#             */
+/*   Updated: 2023/11/13 17:33:10 by rafmorei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_putchar(char c)
-{
-    write(1, &c, 1);
-}
+#include "libft.h"
 
-void ft_putnbr(int nb)
-{
-    int num;
-
-    num = nb;
-    if (num < 0)
-    {
-        num *= -1;
-        ft_putchar('-');
-    }
-    if (num > 9)
-    {
-        ft_putnbr(num / 10);
-    }
-    ft_putchar(num % 10 + 48);
-}
-
-int atoi(char *str)
+int ft_atoi(char *str)
 {
     int neg;
     int num;
@@ -31,7 +21,9 @@ int atoi(char *str)
     i = 0;
     neg = 1;
     num = 0;
-    while (str[i] <= ' ')
+    
+    while (str[i] && (str[i] == ' ' || str[i] == '\v' || str[i] == '\t' 
+            || str[i] == '\f' || str[i] == '\n' || str[i] == '\b' || str[i] == '\r'))
         i++;
     if (str[i] == '-' || str[i] == '+')
     {
@@ -41,14 +33,14 @@ int atoi(char *str)
         }
         i++;
     }
-    while (str[i] >= '0' && str[i] <= '9')
+    while (str[i] && str[i] >= '0' && str[i] <= '9')
     {
         num = num * 10 + (str[i] - 48);
         i++;
     }
     return (num * neg);
 }
-
+/*
 int main(int argc, char **argv)
 {
     int j;
@@ -57,3 +49,4 @@ int main(int argc, char **argv)
     ft_putnbr(j);
     return (0);
 }
+*/

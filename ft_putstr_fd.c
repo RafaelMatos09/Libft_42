@@ -1,9 +1,20 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 10:06:33 by rafmorei          #+#    #+#             */
+/*   Updated: 2023/11/13 16:58:08 by rafmorei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void ft_putstr_fd(char const *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-    if (!s)
-        return;
-    write(fd, s, ft_strlen(s));
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen((char *)s));
 }

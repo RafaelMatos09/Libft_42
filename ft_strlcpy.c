@@ -1,18 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafmorei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/27 18:57:21 by rafmorei          #+#    #+#             */
+/*   Updated: 2023/10/27 18:57:32 by rafmorei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-unsigned int ft_strlcpy(char *dest, const char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-    unsigned int srcl;
+	size_t	srcl;
+	size_t	len;
 
-    srcl = ft_strlen(src);
-
-    if (size)
-    {
-        unsigned int len;
-
-        len = (srcl >= size) ? size - 1 : srcl;
-        ft_memcpy(dest, src, len);
-        dest[len] = '\0';
-    }
-    return (srcl);
+	srcl = ft_strlen((char *)src);
+	if (size)
+	{
+		if (srcl >= size)
+		{
+			len = size - 1;
+		}
+		else
+		{
+			len = srcl;
+		}
+		ft_memcpy(dest, src, len);
+		dest[len] = '\0';
+	}
+	return (srcl);
 }

@@ -1,49 +1,60 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 09:34:41 by rafmorei          #+#    #+#             */
+/*   Updated: 2023/11/13 20:27:24 by rafmorei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int num_of_char(int n)
+#include "libft.h"
+
+static int    my_count(int n)
 {
-    int i;
-    unsigned int num;
+    int            count;
+    long int    aux;
 
-    i = 1;
-    num = n;
-    if (n < 0)
+    count = 0;
+    aux = n;
+    if (aux < 0)
     {
-        i = 2;
-        num = -n;
+        aux *= -1;
+        count++;
     }
-    while (num > 9)
+    while (aux > 9)
     {
-        num = num / 10;
-        i++;
+        aux = (aux / 10);
+        count++;
     }
-    return (i);
+    count++;
+    return (count);
 }
 
-char *ft_itoa(int n)
+char    *ft_itoa(int n)
 {
-    int i;
-    unsigned int num;
-    char *buffer;
+    char        *res;
+    int            count;
+    int            i;
+    long int    aux;
 
-    buffer = (char *)malloc(num_of_char(n) + 1);
-    if (buffer == NULL)
-        return (0);
-    i = num_of_char(n);
-    num = n;
+    aux = n;
+    count = my_count(n);
+    i = count;
+    res = malloc(sizeof(char) * count + 1);
+    if (!res)
+        return (NULL);
     if (n < 0)
+        aux *= -1;
+    res[i] = '\0';
+    while (i != 0)
     {
-        num = -n;
-        buffer[0] = '-';
+        res[--i] = aux % 10 + '0';
+        aux /= 10;
     }
-    buffer[i] = 0;
-    buffer[i - 1] = '0';
-    while (num > 0)
-    {
-        i--;
-        buffer[i] = num % 10 + 48;
-        num /= 10;
-    }
-    return (buffer);
+    if (n < 0)
+        res[0] = '-';
+    return (res);
 }
