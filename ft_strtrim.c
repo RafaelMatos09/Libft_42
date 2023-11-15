@@ -6,7 +6,7 @@
 /*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:54:53 by rafmorei          #+#    #+#             */
-/*   Updated: 2023/11/13 12:28:00 by rafmorei         ###   ########.fr       */
+/*   Updated: 2023/11/15 04:25:30 by rafmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		while (i >= 0 && ft_check_set(s1[i], set))
 			i--;
 	outstr_end = (char *)&s1[i];
-	if (!*s1 || outstr_end == outstr_start)
-		outstr_size = 2;
+	if (!*s1 || outstr_end < outstr_start)
+		outstr_size = 1; 
 	else
-		outstr_size = outstr_end - outstr_start + 2;
-	outstr = malloc(sizeof(char) * outstr_size);
+		outstr_size = outstr_end - outstr_start + 1;
+	outstr = malloc(sizeof(char) * (outstr_size + 1));
 	if (!outstr)
 		return (NULL);
-	ft_strlcpy (outstr, outstr_start, outstr_size);
+	ft_strlcpy(outstr, outstr_start, outstr_size + 1);
 	return (outstr);
 }
+
+
+
