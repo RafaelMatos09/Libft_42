@@ -50,3 +50,18 @@
 <h2>10. ft_memmove(void *dest, const void *src, size_t n)</h2>
 
 <p>A função memmove() copia n bytes da área de memória src para a área de memória dest. As áreas de memória podem se sobrepor: a cópia acontece como se os bytes em src fossem primeiro copiados para uma matriz temporária que não se sobrepõe a src ou dest, e os bytes são então copiados da matriz temporária para dest.</p>
+
+## Testes
+
+### Teste 1
+
+![Descrição do Teste 1](caminho/para/imagem1.jpg)
+
+Breve descrição ou legenda para o Teste 1.
+
+### Teste 2
+
+![Descrição do Teste 2](caminho/para/imagem2.jpg)
+
+Breve descrição ou legenda para o Teste 2.
+
