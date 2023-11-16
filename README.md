@@ -55,13 +55,18 @@
 
 ### Teste 1
 
-![Descrição do Teste 1](caminho/para/imagem1.jpg)
+![image](https://github.com/RafaelMatos09/Libft_42/assets/11903546/534e9c83-e041-4b4c-92b1-5ca9335ab36a)
+![image](https://github.com/RafaelMatos09/Libft_42/assets/11903546/f2400792-1b14-410c-a475-793380f800ae)
+![image](https://github.com/RafaelMatos09/Libft_42/assets/11903546/afb85d01-a707-487b-a04c-def33fd05a5d)
 
-Breve descrição ou legenda para o Teste 1.
+
+Teste feito com libft-war-machine
 
 ### Teste 2
 
-![Descrição do Teste 2](caminho/para/imagem2.jpg)
+![image](https://github.com/RafaelMatos09/Libft_42/assets/11903546/6006b3ab-2ff9-45a2-be47-ae0397394a27)
+![image](https://github.com/RafaelMatos09/Libft_42/assets/11903546/28c60bc0-1cdf-4f09-9a60-176c60e622c5)
 
-Breve descrição ou legenda para o Teste 2.
+
+Teste feito com libft-unit-test
 
