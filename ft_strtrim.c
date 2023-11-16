@@ -6,7 +6,7 @@
 /*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 11:54:53 by rafmorei          #+#    #+#             */
-/*   Updated: 2023/11/15 04:25:30 by rafmorei         ###   ########.fr       */
+/*   Updated: 2023/11/15 04:19:19 by rafmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(outstr, outstr_start, outstr_size + 1);
 	return (outstr);
 }
-
-
-

@@ -25,7 +25,11 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	${RM} ${OBJS} ${OBJSB}
+	${RM} ${OBJS}
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 fclean: clean
 	${RM} ${NAME} ${bonus} 
