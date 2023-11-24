@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafmorei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafmorei <djmaelreborn@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 19:35:00 by rafmorei          #+#    #+#             */
-/*   Updated: 2023/10/27 19:35:02 by rafmorei         ###   ########.fr       */
+/*   Updated: 2023/11/24 07:22:12 by rafmorei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *str, const char *find, size_t size)
 
 	i = 0;
 	if (find[0] == '\0')
+		return ((char *)str);
+	if (size == 0)
 		return ((char *)str);
 	while (str[i] != '\0' && i < size)
 	{
